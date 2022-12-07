@@ -1,0 +1,49 @@
+<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Counter-Up/1.0.0/jquery.counterup.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.js"></script>
+
+<div class="work-outer-sec" style="background-image:url({{module.Bg_image.src }})">
+  <div class="center-page">
+    <div class="work-inner-sec">
+      <div class="heading-work-section">
+        {{ module.add_title }}
+        <div class="work-cards">
+          {% for item in module.field_group %}
+          <div class="work-content">
+            <div class="counter">
+              {{item.add_heading}}
+
+            </div>
+            {{ item.add_work_title }}
+          </div>
+          {% endfor %}   
+
+        </div>
+
+        <div class="button">
+          {% set href = module.cta_link.url.href %}
+          {% if module.cta_link.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+          {% endif %}
+          <a href="#"
+             {% if module.cta_link.open_in_new_tab %}target="_blank"{% endif %}
+             {% if module.cta_link.rel %}rel="{{ module.cta_link.rel }}"{% endif %}
+             >
+            {{ module.cta_text }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+jquery-
+
+  <script>
+    $(document).ready(function(){
+      $('.counter').counterUp({
+
+        time: 2000
+      });
+
+    });
+  </script>
+

@@ -1,0 +1,54 @@
+<div class="breadcrumb">
+  <div class="item"><a href="#home">Home-page</a></div>
+</div>
+
+<div class="items">
+  <ul>
+    {% for item in module.add_navigation_ %}
+    <li>	{% set href = item.add_nav_link.url.href %}
+      {% if item.add_nav_link.url.type is equalto "EMAIL_ADDRESS" %}
+      {% set href = "mailto:" + href %}
+      {% endif %}
+      <a href="{{ href }}"
+         {% if item.add_nav_link.open_in_new_tab %}target="_blank"{% endif %}
+         {% if item.add_nav_link.rel %}rel="{{ item.add_nav_link.rel }}"{% endif %}
+         >
+        {{ item.nav_text }}
+      </a>
+
+      <ul>
+        {% for item2 in item.add_sub_navigation_ %}
+        <li>
+
+          {% set href = item2.add_nav_link.url.href %}
+          {% if item2.add_nav_link.url.type is equalto "EMAIL_ADDRESS" %}
+          {% set href = "mailto:" + href %}
+          {% endif %}
+          <a href="{{ href }}"
+             {% if item2.add_nav_link.open_in_new_tab %}target="_blank"{% endif %}
+             {% if item2.add_nav_link.rel %}rel="{{ item2.add_nav_link.rel }}"{% endif %}
+             >
+            {{ item2.nav_text }}
+          </a>  
+
+        </li>
+        {% endfor %} </ul>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<script>
+$('.items a').on('click', function() {
+  var $this = $(this),
+      $bc = $('<div class="item"></div>');
+
+  $this.parents('li').each(function(n, li) {
+      var $a = $(li).children('a').clone();
+      $bc.prepend(' / ', $a);
+  });
+    $('.breadcrumb').html( $bc.prepend('<a href="#home">Home</a>') );
+    return false;
+}) 
+</script>

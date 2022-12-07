@@ -1,0 +1,14 @@
+{% if dynamic_page_hubdb_row %}        
+  <h1>{{ dynamic_page_hubdb_row.hs_name }}</h1>
+ <h1>{{ dynamic_page_hubdb_row.name }}</h1>
+{% elif dynamic_page_hubdb_table_id %}
+  <ul>
+  {% for row in hubdb_table_rows(dynamic_page_hubdb_table_id) %}
+      <li><a href="{{ request.path }}/{{ row.hs_path }}">{{ row.hs_name }} </a></li>                
+  {% endfor %}
+  </ul>
+{% endif %}
+
+
+ 
+

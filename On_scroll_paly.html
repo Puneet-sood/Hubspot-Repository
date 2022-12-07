@@ -1,0 +1,60 @@
+<div class="block"><span>Видео ниже</span></div>
+
+<div class="block video-block">
+  <video class="video" width="640" loop controls autoplay muted>
+      <source src="http://denis-creative.com/wp-content/uploads/2018/01/video.mp4" type="video/mp4" /> 
+    </video>
+</div>
+<div class="block"><span>Видео ниже</span></div>
+
+<div class="block video-block">
+  <video class="video" width="640" loop controls autoplay muted>
+      <source src="http://denis-creative.com/wp-content/uploads/2018/01/video.mp4" type="video/mp4" /> 
+    </video>
+</div>
+<div class="block"><span>Видео выше</span></div>
+<style>
+.block{
+  height: 100vh;
+  font-size: 60px;
+  text-align: center;
+  display: flex;
+}
+.block > *{
+  margin: auto;
+  display: inline-block;
+}
+</style>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script>
+$(function() {
+//var $video = $('.video');
+var $window = $(window);
+
+$window.scroll(function() {
+
+$('.video').each(function(){
+
+    var $topOfVideo = $(this).offset().top;
+	
+    var $bottomOfVideo = $(this).offset().top + $(this).outerHeight();
+  
+    var $topOfScreen = $window.scrollTop();
+
+    var $bottomOfScreen = $window.scrollTop() + $window.innerHeight();
+   console.log($bottomOfScreen);
+    if(($bottomOfScreen > $bottomOfVideo) && ($topOfScreen < $topOfVideo)){
+      $(this)[0].play();
+	  //$(this).siblings('.video').trigger('click');
+	  //$sibling[0].pause();
+    } else {
+	 //var $sibling[0].pause();
+      $(this)[0].pause();
+    }
+	if($bottomOfScreen < $bottomOfVideo){
+	$(this)[0].pause();
+	}
+   }); 
+  });
+});
+</script>

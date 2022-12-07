@@ -1,0 +1,146 @@
+
+
+<div class="filters filter-button-group">
+	  <ul><h4>
+		<li class="active" data-filter="*">All</li>
+		<li data-filter=".webdesign">Web Design</li>
+		<li data-filter=".webdev">Web Development</li>
+	  </h4></ul>
+	</div>
+
+	<div class="content grid">
+
+
+
+<div class="single-content webdesign  grid-item">
+<ul>
+
+<li>desinging</li>
+
+</ul>
+  
+			  </div>
+			  
+<div class="single-content  webdev  grid-item">
+<ul>
+<li>deveopment</li>
+</ul>
+  
+</div>
+
+		
+	
+	</div>
+<style>
+
+body {
+font-family: sans-serif;
+margin: 0 auto;
+padding: 20px;
+width: 80%;
+}
+
+p {
+font-size: 10px;
+text-transform: uppercase;
+letter-spacing: .18em;
+text-align: center;
+padding-top: 30px;
+}
+
+a {
+text-decoration: none;
+}
+
+.brand {
+text-align: center;
+}
+
+.brand img {
+width: 50px;
+}
+
+.p1:hover, .p2:hover {
+opacity: .3;
+cursor: pointer;
+}
+
+h4 {
+color: grey;
+font-size: 24px;
+font-weight: 400;
+}
+
+#portfolio p {
+color: grey;
+font-size: 12px;
+font-weight: 200;
+}
+
+.content {
+width: 100%;
+margin: 0 auto;
+padding: 0px;
+text-align: center;
+}
+
+.single-content img {
+width: 290px;
+height: 100%;
+margin: 10px;
+}
+
+.filters {
+width: 100%;
+text-align: center;
+}
+
+ul {
+list-style: none;
+padding: 20px 0;
+}
+
+li {
+display: inline;
+padding: 10px 25px;
+font-size: 14px;
+color: #636363;
+font-weight: 400;
+cursor: pointer;
+text-transform: uppercase;
+letter-spacing: .2em;
+}
+
+li:hover {
+color: #a6a6a6;
+}
+
+li.active {
+color: #ccc;
+border: 1px solid #ccc;
+border-radius: 15px;
+}
+
+</style>      
+	
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha512-Zq2BOxyhvnRFXu0+WE6ojpZLOU2jdnqbrM1hmVdGzyeCa1DgM3X5Q4A/Is9xA1IkbUeDd7755dNNI/PzSf2Pew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	
+	<script>
+	 $(document).ready( function() {   
+
+$('.grid').isotope({
+itemSelector: '.grid-item',
+});
+
+// filter items on button click
+$('.filter-button-group').on( 'click', 'li', function() {
+var filterValue = $(this).attr('data-filter');
+$('.grid').isotope({ filter: filterValue });
+$('.filter-button-group li').removeClass('active');
+$(this).addClass('active');
+});
+})
+	
+	</script>
