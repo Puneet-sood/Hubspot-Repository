@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+        #load
+        {
+            background: #000;
+            color: white;
+            border: 2px solid grey;
+            border-radius: 7px;
+            padding: 10px 18px;
+            margin: 20px;
+        }
+      
+        .dispaly
+        {
+            display: none;
+        }
+
+
+      
+    </style>
+</head>
+<body>
+    <div class="main">
+    <div class="dispaly">1</div>
+    <div class="dispaly">2</div>
+    <div class="dispaly">3</div>
+    <div class="dispaly">4</div>
+    <div class="dispaly">5</div>
+    <div class="dispaly">6</div>
+    <div class="dispaly">7</div>
+    <a id="load">load more</a>
+
+
+</div>
+</body>
+
+
+<script>
+    $(document).ready(function(){
+
+     $(".dispaly").slice(0,3).show(); 
+
+     $("#load").on("click", function(){
+     $(".dispaly").slice(3,6).show();
+
+     $("#load").on("click", function(){
+            $(".dispaly").slice(6).show();
+            $("#load").hide();
+              });
+            });
+        });
+    
+</script>
+</html>
