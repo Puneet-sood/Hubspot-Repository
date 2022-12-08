@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<style>
+
+    button
+    {
+        padding: 20px;
+        background-color: antiquewhite;
+        color: blueviolet;
+        border: none;
+    }
+
+    video
+    {
+        display: none;
+    }
+
+
+    .hide{
+        display: none;
+    }
+
+    .show
+    {
+        display:inline-block;
+    }
+
+
+</style>
+<body>
+    
+    <video id="sample_video" width="360" height="240">
+        <source src="../7may2022/movie.mp4"type="video/mp4">
+    </video>
+     <br>
+<button id="open">show</button>
+<button id="one">paly</button>
+ <button id="two">pause</button> 
+ <button id="three">hide</button> 
+    
+    <script>
+    $(document).ready(function(){
+
+$("#one , #two ,three ").each(function(){
+    $("#one , #two ,#three ").addClass('hide')
+    $("#open ").click(function(){
+     $('#one , #two ,three ').each(function(){
+         $("#one , #two ,#three ").addClass('show')
+     });
+    });
+});
+
+           $("#open").click(function(){
+            $("video").addClass('show')
+            $('#open').addClass('hide')
+            $("#open").removeClass('show');
+        });
+
+        $("#one").click(function(){
+            $("#sample_video").get(0).play();
+        });
+
+        $("#two").click(function(){
+            $("#sample_video").get(0).pause();
+        });
+
+        $("#three").click(function(){
+            $("video").removeClass('show');
+            $("video").addClass('hide');
+            $("#one").removeClass('show');
+            $("#two").removeClass('show');
+            $("#three").removeClass('show');
+            $("#one").addClass('hide');
+            $("#two").addClass('hide');
+            $("#three").addClass('hide');
+             $("#sample_video").get(0).pause();
+            $('#open').addClass('show')
+        });
+    })
+    </script>
+</body>
+</html>
