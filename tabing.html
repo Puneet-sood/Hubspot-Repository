@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+   
+   <style>
+        .main
+        {
+            background-color: blueviolet;
+            border: none;
+            display: flex;
+            justify-content: space-around;
+            max-width: 100%;
+            border-radius: 5px;
+            color: white;
+            box-shadow: 10px 10px 5px grey;
+        }
+
+        .main2 
+        {
+            background-color:whitesmoke;
+            border: none;
+            max-width: 100%;
+            box-shadow: 10px 10px 5px grey;
+            padding: 100px;
+        }
+
+
+        .content
+        {
+            display: none;
+            color:orangered;
+        }
+
+
+        .show
+        {
+         display: block;
+        }
+
+        .one{
+            cursor: pointer;
+        }
+      
+    </style>
+</head>
+<body>
+    
+    <ul class="main">
+
+        <li class="one">
+         <h1>one</h1>
+        </li>
+
+        <li class="one">
+            <h1>two</h1>
+        </li>
+
+        <li class="one">
+            <h1>three</h1>
+        </li>
+
+    </ul>
+
+
+    <ul class="main2">
+    <li class="content">
+        <h4>this is first content</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, fuga.</p>
+    </li>
+    <li class="content">
+        <h4>2this is first content</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, fuga.</p>
+    </li>
+
+    <li class="content">
+        <h4>3this is first content</h4>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis, fuga.</p>
+    </li>
+
+    <a href="CIENCE_ GO Process _ Meeting Management Software.docx" download >download </a>
+
+</ul>
+
+<a href="./121.jpg" download > this is download </a>
+    
+    <script>
+   $(document).ready(function(){
+    $(".main2  li:first").addClass('show');
+
+  $(".main li:first").click(function(){
+    $(".main2 li:nth-child(2),  li:nth-child(3)").removeClass('show');
+    $(".main2  li:first").addClass('show');
+});
+
+      $(".main li:nth-child(2)").click(function(){
+        $(".main2  li:first, li:nth-child(3) ").removeClass('show');
+        $(".main2 li:nth-child(2)").addClass('show');
+});
+
+   $(".main  li:nth-child(3)").click(function(){
+    $(".main2  li:first , li:nth-child(2)").removeClass('show');
+      $(".main2  li:nth-child(3)").addClass('show');
+       });
+     });
+
+
+
+  
+    </script>
+</body>
+</html>
