@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+<body>  
+    <input type="text" id="box" placeholder="type on it">
+    <input type="text" id="box2" placeholder="copy typing">
+
+    <br>
+
+    <input type="text" id="box3" placeholder="type on it">
+    <input type="text" id="box4" placeholder="copy typing">
+    <br>
+    
+    <input type="text" id="box5" placeholder="copy typing">
+    
+    <input type="text" id="box6" placeholder="copy typing">
+</body>
+
+<script>
+  
+$(document).ready(function(){
+
+  $("#box").keyup(function(){
+    $("#box2").val($("#box").val());
+ });
+
+
+ 
+ $("#box3").keypress(function(){
+  $("#box4").val($("#box3").val());
+ });
+a
+ $("#box5").keydown(function(){
+  $("#box6").val($("#box5").val());
+
+    
+ });
+
+});
+
+</script>
+</html>
