@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <style>
+
+ .item
+ {
+ background-color: black;
+ color: white;
+ padding: 10px;
+ margin: 10px;
+ display: inline-flex;
+ }
+.sub_menu
+{
+    display: none;
+}
+
+.hoverclass:hover .sub_menu 
+{
+display: block;
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li class="item">home</li>
+                    <li class="item hoverclass">about
+                        <ul class="sub_menu">
+                            <li>about1</li>
+                            <li>about 2</li>
+                        </ul>
+                    </li>
+                    <li class="item">services
+                        <ul  class="sub_menu">
+                            <li>services1</li>
+                            <li>services2
+                                <ul  class="sub_menu">
+                                    <li> sub services1 </li>
+                                    <li > sub services2 </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="item">gallery</li>
+                    <li class="item">blog</li>
+                    <li class="item">contact us</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+</body>
+</html>
