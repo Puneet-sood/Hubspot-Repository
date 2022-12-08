@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <style>
+
+        .main
+        {
+           background-color: grey;
+           padding: 50px;
+           width: 300px;
+           color: red;
+        }
+        .text
+        {
+         
+           white-space: nowrap;
+           overflow: hidden;
+           text-overflow: ellipsis ;
+           
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+       <p class="text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dignissimos cum eos odit minus iusto animi, blanditiis harum sapiente,</p> 
+    </div>
+
+        
+    <a href="#" style="background-color: black; color:white; border:none; padding: 6px; " id="more">read more</a>
+    
+    <a href="#" style="background-color: black; color:white; border:none; padding: 6px;"  id="less">read less</a>
+
+    <script>
+
+        $(document).ready(function(){
+            $("#less").hide();
+          $("#more").click(function(){
+           $(".main p").removeClass("text");
+           $("#more").hide();
+           $("#less").show();
+          });
+ 
+          $("#less").click(function(){
+           $(".main p").addClass("text");
+           $("#more").show();
+           $("#less").hide();
+          });
+
+        });
+        
+    </script>
+</body>
+</html>
