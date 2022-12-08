@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css" integrity="sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        *
+        {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        .main 
+        {
+            color: white;
+            background: #000;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .heading
+        {
+            background: rgb(224, 83, 224);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            font-size: 30px;
+            padding: 0px 37px;
+            border: 2px solid white;
+            border-radius: 32px;
+        }
+
+        .cc
+        {
+            background: #000;
+            color: white;
+            font-size: 20px;
+            padding: 20px;
+            display: none;
+            border-radius: 32px;
+        }
+
+  .content1
+  {
+      display: block;
+     
+  }
+
+
+        .first, .second , .third
+
+        {
+            cursor: pointer;
+            
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main">
+    <h1>Accodin heading</h1>
+    </div>
+
+    <div class="heading">
+        <h3>heading 1  </h3>
+        <b class="  first">+</b>
+    </div>
+
+    <p class="content1 cc">
+     Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, unde?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit explicabo autem deleniti iure maiores adipisci quidem doloremque pariatur blanditiis tenetur.
+    </p>
+
+    <div class="heading">
+        <h3>heading 2 </h3>
+        <b class=" second">+</b>
+    </div>
+
+    <p class="content2 cc">
+     Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, unde?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit explicabo autem deleniti iure maiores adipisci quidem doloremque pariatur blanditiis tenetur.
+    </p>
+
+    <div class="heading">
+        <h3>heading 3</h3>
+        <b class=" third">+</b>
+    </div>
+
+    <p class="content3 cc">
+     Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, unde?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Suscipit explicabo autem deleniti iure maiores adipisci quidem doloremque pariatur blanditiis tenetur.
+    </p>
+
+<script>
+    $(document).ready(function(){
+       
+       $(".first").click(function(){
+         $(".content1").slideDown();
+         $(".content2").hide();
+         $(".content3").hide();
+        });
+
+         $(".second").click(function(){
+         $(".content2").slideDown();
+         $(".content1").hide();
+         $(".content3").hide();
+        });
+
+       $(".third").click(function(){
+         $(".content3").slideDown();
+         $(".content1").hide();
+         $(".content2").hide();
+       });
+        });
+</script>
+  
+</body>
+</html>
