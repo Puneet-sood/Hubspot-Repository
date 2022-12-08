@@ -1,0 +1,77 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="robots" content="noindex">
+  <title>Simple Range</title>
+
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/rangeslider.js/2.0.0/rangeslider.min.css">
+</head>
+
+<body>
+<style>
+body {
+  padding-top: 60px;
+}
+
+  .calc__output {
+  color: black;
+  font-size:30px;
+ margin-left:250px;
+
+  }
+.rangeslider {
+    position: absolute !impotrant;
+    bottom: 1px;
+    left: 7%;
+    width: 100%;
+    max-width: 84%;
+    
+  }
+
+  .rangeslider--horizontal {
+    width: 100%;
+    width: 542px;
+    height: 8px !important;
+  }
+
+  .rangeslider__handle {
+    width: 20px !important;
+    height: 20px !important;
+    background-color: !impotrant;
+    border: 4px solid orange !important;
+    transform: translateY(-2px) !important;
+}
+  .rangeslider__handle::after {
+      display: none !important;
+    }
+
+.rangeslider__fill {
+      background: linear-gradient(90deg, rgba(106, 129, 191, 1) 0%, rgba(255, 127, 46, 1) 35%, rgba(255, 127, 46, 1) 100%) !important;
+  }
+#rangeslider-1
+{
+ max-width:100%;
+  width:100%;
+}
+</style>
+  <div class="container__mid">
+    <div class="calc__range-calc">
+      <div class="calc__range-wrapp">
+        <output type="text" class="calc__output" id="rangeslider-output-1">0</output>
+
+        <input type="range" id="rangeslider-1" value="0" min="1" max="100" step="1">
+      </div>
+    </div>
+  </div>
+  <script
+          src="https://code.jquery.com/jquery-3.6.0.min.js"
+          integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+          crossorigin="anonymous"></script>
+</body>
+
+</html>
+
+<script>
+$('#rangeslider-1').on('change input', function () {
+  $('#rangeslider-output-1').val(($(this).val()));
+});
+</script>
