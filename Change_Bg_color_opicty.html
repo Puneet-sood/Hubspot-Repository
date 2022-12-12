@@ -1,0 +1,80 @@
+<select id="selectVal">
+  <option class='option' value=''>select your color</option>
+  <option class='option' value='red'>red</option>
+  <option class='option' value='green'>green</option>
+</select> 
+
+<div class='box'></div>
+
+
+<div class="range-slider">
+  <input class="input-range" type="range" min="0" max="1" value="1" id="opacity-slider" step="0.1"><br/>
+  <input type="number" class="range-value" min="0" max="1" value="1"  step="0.1"/>
+</div>
+<style>
+.box
+{
+  width:200px;
+  height:200px;
+  border: 2px solid;
+ 
+}
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+/*change color code*/
+
+$('#selectVal').change(function(){
+  if( $('option:selected').val() === 'red')
+  {  
+    $('.box').css('background', 'red');
+  }
+  else if ($('option:selected').val() === 'green'){
+    $('.box').css("background", "green");
+  }
+  else if( $('option:selected').val() === '')
+  {  
+    $('.box').css('background', 'none');
+  }
+  else{
+   document.write('Color not selected yet..')
+  }
+})
+
+/*opacity code*/
+
+$(document).ready(function(){
+  $range = $(' .input-range');
+  $value = $(' .range-value');
+
+ /*add value in input box*/
+ 
+  $value.val($range.attr('value'));
+
+  /*add input box value in slider*/
+
+  $value.on('input', function(){
+    $range.val(this.value);
+  });
+
+/*add value slider value in input box on slide . and give opicty value on base of range slider*/
+
+  $('#opacity-slider').on("mousemove", function() {
+    $('.range-value').val($(this).val())
+    $('.box').css({
+      'opacity': $(this).val()
+    });
+  });
+
+/*add opicty value on base of input box value*/
+  
+  $('.range-value').change(function() {
+    $('.box').css({
+      'opacity': $(this).val() 
+    });
+  });
+
+});
+
+</script>
