@@ -1,0 +1,58 @@
+<!-- sets a variable for a the 5 most recent posts of my default CMS blog -->
+{% set blog_one_posts = blog_recent_posts(module.select_blog.blog_ , limit=5) %}
+
+<!-- sets a variable for a the 5 most recent posts of my blog id 47082700. You can find the blog id in the URL of the blog dashboard for a particular blog-->
+{% set blog_two_posts = blog_recent_posts(  module.select_blog.blog_2 , limit=5) %}  
+
+<!-- combines the two variables into a single variable and sorts them by publish date. Please note the sort filter requires all three parameters -->
+{% set all_posts = (blog_one_posts + blog_two_posts) | sort(true, false, 'publish_date')  %} 
+<!-- loop through posts in custom all posts variable -->
+{% for post in all_posts %} 
+
+/* filter code for author and month */
+{% if post.publish_date|datetimeformat('%B') == module.choice_month %}
+{% if post.blog_post_author ==  module.choice_author  %} 
+
+<div class="post-item">
+  {% if not simple_list_page %}
+  <div class="post-header">
+    <h2><a href="{{post.absolute_url}}">{{ post.name }}</a></h2>
+    <div id="hubspot-author_data" class="hubspot-editable" data-hubspot-form-id="author_data" data-hubspot-name="Blog Author">
+      Posted by
+      {%if post.blog_post_author %}
+      <a class="author-link" href=" {{ post.parent_blog.absolute_url }}/author/{{ post.blog_post_author.slug }}">{{ post.blog_post_author.display_name }}</a> on {{ datetimeformat(topic_post.publish_date, "%B") }}
+      {% endif %}
+    </div>
+
+  </div>
+  <div class="post-body ">
+    <!--post summary-->
+    {% if post.post_list_summary_featured_image %}
+    <div class="hs-featured-image-wrapper">
+      <a href="{{post.absolute_url}}" title="" class="hs-featured-image-link">
+        <img src="{{ post.post_list_summary_featured_image }}" class="hs-featured-image">
+      </a>
+    </div>
+    {% endif %}
+
+    {{ post.post_list_content|safe }}
+    
+    
+  </div>
+  {% if content_group.show_summary_in_listing %}
+  <a class="more-link" href="{{ post.absolute_url }}">Read More</a>
+  {% endif %}
+  <div class="custom_listing_comments">
+    {% set comments_number =  post.comment_list|length %}
+    {% set comments_label = "Comment" if comments_number == 1 else "Comments" %}
+    {{ comments_number }} {{ comments_label }} <a href="{{post.absolute_url}}#comments-listing">Click here to read/write comments</a>
+  </div>
+
+  {% else %}
+  <h2 class="post-listing-simple"><a href="{{post.absolute_url}}">{{ post.name }}</a></h2>
+  {% endif %}
+</div>
+{% endif %}
+{% endif %}
+{% endfor %}
+
