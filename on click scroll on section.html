@@ -1,0 +1,223 @@
+<div class="banner-outer {% if module.refreshingly_section_style %}refreshingly-section-style{% endif %}" style="background-image:url({{ module.background_image.src }});">
+  <div class="content-wrapper">
+    <div class="banner-inner">
+      <div class="content-btn-wrapper">
+        <div class="content">
+          {{ module.content }}
+        </div>   
+        <div class="btn-group-outer">
+          {% if module.buttton_group.button_text %}
+          <div class="btn ">
+            {% set href = module.buttton_group.button_link.url.href %}
+            {% if module.buttton_group.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+            {% set href = "mailto:" + href %}
+            {% endif %}
+            <a href="{{ href }}"
+               {% if module.buttton_group.button_link.open_in_new_tab %}target="_blank"{% endif %}
+               {% if module.buttton_group.button_link.rel %}rel="{{ module.buttton_group.button_link.rel }}"{% endif %}
+               >
+              {{ module.buttton_group.button_text }}
+            </a>
+          </div>
+          {% endif %}
+          {% if module.buttton_2.button_text %}
+          <div class="btn scroll-btn ">
+            {% set href = module.buttton_2.button_link.url.href %}
+            {% if module.buttton_2.button_link.url.type is equalto "EMAIL_ADDRESS" %}
+            {% set href = "mailto:" + href %}
+            {% endif %}
+            <a href="{{ href }}"
+               {% if module.buttton_2.button_link.open_in_new_tab %}target="_blank"{% endif %}
+               {% if module.buttton_2.button_link.rel %}rel="{{ module.buttton_2.button_link.rel }}"{% endif %}
+               >
+              {{ module.buttton_2.button_text }}
+            </a>
+            {% endif %}
+          </div>
+          {% if module.show_bottom_section %}
+          <div class="bottom-text">
+            <div class="img">
+              {% if module.bottom_section.image.src %}
+              {% set sizeAttrs = 'width="{{ module.bottom_section.image.width }}" height="{{ module.bottom_section.image.height }}"' %}
+              {% if module.bottom_section.image.size_type == 'auto' %}
+              {% set sizeAttrs = 'width="{{ module.bottom_section.image.width }}" height="{{ module.bottom_section.image.height }}" style="max-width: 100%; height: auto;"' %}
+              {% elif module.bottom_section.image.size_type == 'auto_custom_max' %}
+              {% set sizeAttrs = 'width="{{ module.bottom_section.image.max_width }}" height="{{ module.bottom_section.image.max_height }}" style="max-width: 100%; height: auto;"' %}
+              {% endif %}
+              {% set loadingAttr = module.bottom_section.image.loading != 'disabled' ? 'loading="{{ module.bottom_section.image.loading }}"' : '' %}
+              <img src="{{ module.bottom_section.image.src }}" alt="{{ module.bottom_section.image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+              {% endif %}
+            </div>
+            <div class="text">
+              <p>{{ module.bottom_section.text_field }}</p>
+            </div>
+          </div>
+          {% endif %}
+          {% if module.scroll_image.src %}
+          <div class="scroll-icon">
+            {% if module.scroll_image.src %}
+            {% set sizeAttrs = 'width="{{ module.scroll_image.width }}" height="{{ module.scroll_image.height }}"' %}
+            {% if module.scroll_image.size_type == 'auto' %}
+            {% set sizeAttrs = 'width="{{ module.scroll_image.width }}" height="{{ module.scroll_image.height }}" style="max-width: 100%; height: auto;"' %}
+            {% elif module.scroll_image.size_type == 'auto_custom_max' %}
+            {% set sizeAttrs = 'width="{{ module.scroll_image.max_width }}" height="{{ module.scroll_image.max_height }}" style="max-width: 100%; height: auto;"' %}
+            {% endif %}
+            {% set loadingAttr = module.scroll_image.loading != 'disabled' ? 'loading="{{ module.scroll_image.loading }}"' : '' %}
+            <img src="{{ module.scroll_image.src }}" alt="{{ module.scroll_image.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+            {% endif %}
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>  
+  </div>
+  <style>
+
+    .banner-outer h4 {
+      font-size: 44px;
+      font-weight: 500;
+      margin-bottom: 18px;
+    }
+    .banner-inner .content-btn-wrapper * {
+      text-align: center;
+      z-index: 1;
+    }
+    .banner-outer h1 {
+      font-size: 66px;
+      line-height: 60px;
+      font-weight: 800;
+      margin-bottom: 31px;
+    }
+    .banner-inner .content-btn-wrapper .content p {
+      font-size: 18px;
+      line-height: 30px;
+      font-weight: 400;
+      max-width: 679px;
+      margin: 0 auto 31px;
+    }
+    .banner-outer {
+      position: relative;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: top;
+      padding: 120px 0 160px;
+    }
+    .banner-outer .content-btn-wrapper {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      /*     position: relative; */
+      z-index: 1;
+    }
+    .banner-outer .content-wrapper {
+      height: 100%;
+    }
+    .banner-outer .content-wrapper .banner-inner {height: 100%;}
+    .banner-outer:before {
+      content: '';
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: #fff;
+      opacity: 0.2;
+      z-index: 1;
+    }
+    .banner-outer .scroll-icon {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    .refreshingly-section-style {
+      padding: var(--sec-padd);
+    }
+    .refreshingly-section-style .bottom-text {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .refreshingly-section-style .bottom-text img {
+      width: 11px;
+      height: 10px;
+    }
+    .refreshingly-section-style .bottom-text .text p{
+      font-family: auto;
+      font-style: italic;
+      font-size: 11px;
+      padding-left: 2px;
+      margin-bottom:0;
+    }
+    .refreshingly-section-style h4 {
+      font-weight: 800;
+      color: #232323;
+      text-transform: uppercase;
+    }
+    .refreshingly-section-style p {
+      line-height: 35px !important;
+    }
+    .btn-group-outer {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .refreshingly-section-style .btn-group-outer {
+ display: flex;
+      gap: 0px;
+      flex-wrap: wrap;
+      justify-content: center;
+flex-direction:column;
+}
+    @media screen and (max-width:991px){
+      .banner-outer h1 {
+        font-size: 55px;
+      }
+    }
+
+    @media screen and (max-width:767px){
+      .banner-outer h1 {
+        font-size: 45px;
+        line-height: 45px;
+        margin-bottom: 20px;
+      }
+      .banner-outer h4 {
+        font-size: 30px;
+      }
+    }
+    @media screen and (max-width:480px){
+      .banner-inner .content-btn-wrapper .content p {
+        font-size: 14px;
+        line-height: 25px;
+        margin: 0 auto 20px;
+      }
+      .banner-outer {
+        padding: 80px 0 100px;
+      }
+      .banner-outer .scroll-icon img {
+        width: 35px;
+        height: 56px;
+        object-fit: contain;
+      }
+      .btn-group-outer {
+        gap: 10px;
+      }
+    }
+  </style>
+
+  <script>
+     //source -: https://codepen.io/ertane/pen/pozKLRy
+    $(document).ready(function() {      
+      $(".scroll-icon ").click(function() {
+        $('html, body').animate({
+          scrollTop: $(".left-image-right-content-inner ").offset().top
+        }, 1500);
+      });
+    });
+
+
+  </script>
