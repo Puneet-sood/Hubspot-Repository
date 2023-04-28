@@ -1,0 +1,53 @@
+<div class="popup-form-outer" style="display:none;">
+<div class="content-wrapper">
+<div class="popup-form-inner">
+  <div class="popup-form-header-text">
+	{{ module.form_heading }}
+  </div>
+  <div class="popup-form">
+	{% form
+form_to_use="{{ module.form_field.form_id }}"
+response_response_type="{{ module.form_field.response_type }}"
+response_message="{{ module.form_field.message }}"
+response_redirect_id="{{ module.form_field.redirect_id }}"
+response_redirect_url="{{module.form_field.redirect_url}}"
+gotowebinar_webinar_key="{{ module.form_field.gotowebinar_webinar_key }}"
+%}
+  </div>
+  <div class="close-icon">
+	{% if module.close_icon.src %}
+	{% set sizeAttrs = 'width="{{ module.close_icon.width }}" height="{{ module.close_icon.height }}"' %}
+	{% if module.close_icon.size_type == 'auto' %}
+	{% set sizeAttrs = 'width="{{ module.close_icon.width }}" height="{{ module.close_icon.height }}" style="max-width: 100%; height: auto;"' %}
+	{% elif module.close_icon.size_type == 'auto_custom_max' %}
+	{% set sizeAttrs = 'width="{{ module.close_icon.max_width }}" height="{{ module.close_icon.max_height }}" style="max-width: 100%; height: auto;"' %}
+	{% endif %}
+	{% set loadingAttr = module.close_icon.loading != 'disabled' ? 'loading="{{ module.close_icon.loading }}"' : '' %}
+	<img src="{{ module.close_icon.src }}" alt="{{ module.close_icon.alt }}" {{ loadingAttr }} {{ sizeAttrs }}>
+	{% endif %}
+  </div>
+</div>
+</div>
+</div>
+<style>
+.popup-form-header-text h4{
+text-align: center;
+padding-bottom: 10px;
+}</style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script>
+
+$(document).ready(function() {
+if(localStorage.getItem('popState') != 'shown'){
+	$(".popup-form-outer").delay(2000).fadeIn();
+	localStorage.setItem('popState','shown')
+}
+$('.close-icon').click(function(){
+$('.popup-form-outer').hide();
+})
+});
+
+
+
+
+</script>
